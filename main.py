@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 import z3
-import struct
+import sys
+
 
 sequence = [
-  0.7177022661837045,
-  0.4951146730115529,
-  0.8135234699950077,
-  0.6650083345378781,
-  0.35751644064280597
+  0.39758906718201736,
+  0.4329850696860956,
+  0.34160824291508707,
+  0.9406091940001944,
+  0.6989947470910626
 ]
 
 def get_states():
@@ -31,7 +32,6 @@ def get_states():
 
     # Compare Mantissas
     solver.add(int(mantissa) == (calc & 0x1FFFFFFFFFFFFF))
-
 
   if solver.check() == z3.sat:
     model = solver.model()
